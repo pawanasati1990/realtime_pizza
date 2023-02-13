@@ -1,0 +1,44 @@
+{
+  "name": "realtime-pizza",
+  "version": "1.0.0",
+  "description": "This is my first website project",
+  "main": "index.js",
+  "author": "Pawan Asati",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -r esm server.js",
+    "serve": "node -r esm server.js",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js  --config=node_modules/laravel-mix/setup/webpack.config.js"
+
+  },
+  "dependencies": {
+    "alert": "^5.1.4",
+    "autoprefixer": "10.4.5",
+    "axios": "^1.3.0",
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "esm": "^3.2.25",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "moment": "^2.29.4",
+    "mongoose": "^6.9.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.6.0"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "nodemon": "^2.0.20",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^12.1.0"
+  }
+}

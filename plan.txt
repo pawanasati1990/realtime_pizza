@@ -1,0 +1,18 @@
+[+] Creating directory stucture
+[.] Creating NPM project and install all dependancyy
+    - Dependancy
+        - express
+        - ejs express-ejs-layouts  //Templace engine
+    - Dev
+       -nodemon
+
+ [.] Create express server -Create a server.js file
+ [.] Create home page using html and css
+     - Include tailwind css
+ [.] Create cart page
+      ordersummary section
+      empty cardd section  
+ [.] Create order conntorller and link it with server.js
+ [.] Create orders view with table for customer and admin
+ [.] Create order single page with status
+ [.] Create login page with route            
