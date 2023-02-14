@@ -1,6 +1,7 @@
 {
   "name": "realtime-pizza",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is my first website project",
   "main": "index.js",
   "author": "Pawan Asati",
