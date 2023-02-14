@@ -16,7 +16,9 @@
                     <h1><%= pizza.item.name %></h1>
                     <span class="pizza_size text-xs"><%= pizza.item.size %></span>
                 </div>
-                <span class ="flex-1"> <%= pizza.qty %> Pcs</span>
+                <span class ="flex-1"> <%= pizza.qty %> Pcs
+                    <img id="deleteCartButton" class="w-5 h-5 ml-6 cursor-pointer" data-pizza_item="<%= pizza.item._id %>" src="/img/bin.png" alt=""></a>
+                </span>
                 <span class="font-bold text-lg">&#8377;<%= pizza.qty* pizza.item.prize %></span>
                 <!-- <button class="ml-12" id="deleteCartButton" data-pizza_item="<%= pizza.item._id %>">Delete</button> -->
                 <img id="deleteCartButton" class="w-5 h-5 ml-6 cursor-pointer" data-pizza_item="<%= pizza.item._id %>" src="/img/bin.png" alt=""></a>
