@@ -11,6 +11,7 @@ import passport from 'passport';
 import passportInit from './app/config/passport.js'
 import EventEmitter from 'events';
 
+
 /*yarn watch 
   npm run dev
 */
@@ -63,6 +64,8 @@ app.use((req,res,next)=>{
 });
 //set template engine
 app.use(expressEjsLayouts)
+const __dirname = path.resolve();
+
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs');
 route(app);
