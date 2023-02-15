@@ -9,7 +9,7 @@ import flash from 'express-flash';
 import { autoload } from 'laravel-mix';
 const route = require('./routes/web');
 import MongoStore from 'connect-mongo';
-import passport from 'passport';
+var passport =require ('passport');
 import passportInit from './app/config/passport'
 import EventEmitter from 'events';
 
