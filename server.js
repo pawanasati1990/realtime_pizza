@@ -75,7 +75,7 @@ res.status(404).render('errors/404')
 })
 
 const server =app.listen(APP_PORT, () => {
-    console.log("listning");
+    console.log("listning",APP_PORT);
 });
 
 const io=new Server(server)
