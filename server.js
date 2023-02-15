@@ -5,7 +5,7 @@ import path from 'path'
 import mongoose from 'mongoose';
 import session from 'express-session'
 import flash from 'express-flash';
-const route = require('./routes/web');
+import route from './routes/web'
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import passportInit from './app/config/passport.js'
