@@ -1,6 +1,5 @@
 import express from 'express'
 import { APP_PORT, DB_URL, COOKIE_SECRET } from './app/config/index.js';
-import ejs from 'ejs';
 import expressEjsLayouts from 'express-ejs-layouts';
 import path from 'path'
 import mongoose from 'mongoose';
