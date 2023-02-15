@@ -1,8 +1,4 @@
 import mongoose, { Schema }  from "mongoose";
-import {  APP_URL } from "../config";
-const img="img/";
-
-const schema=mongoose.schema;
 const menuSchema=new Schema(
     {
         name:{type:String,require:true},
