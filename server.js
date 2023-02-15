@@ -9,8 +9,8 @@ import flash from 'express-flash';
 import { autoload } from 'laravel-mix';
 const route = require('./routes/web');
 import MongoStore from 'connect-mongo';
-var passport =require ('passport');
-import passportInit from './app/config/passport'
+import passport from 'passport';
+import passportInit from './app/config/passport.js'
 import EventEmitter from 'events';
 
 /*yarn watch 
