@@ -10,7 +10,8 @@ import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import passportInit from './app/config/passport.js'
 import EventEmitter from 'events';
-import soketIo from 'socket.io'
+import { Server } from "socket.io";
+
 
 /*yarn watch 
   npm run dev
@@ -77,7 +78,7 @@ const server =app.listen(APP_PORT, () => {
     console.log("listning");
 });
 
-const io=soketIo(server)
+const io=new Server(server)
 io.on('connection',(socket)=>{
     //Join 
     socket.on('join',(orderID)=>{
