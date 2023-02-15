@@ -1,5 +1,7 @@
 
-const User=require('../../models/user')
+//const User=require('../../models/user')
+import User from '../../models/user.js'
+
 import bcrypt from 'bcrypt'
 import passport from 'passport'
 

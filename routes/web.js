@@ -8,9 +8,9 @@ const adminController=require('../app/http/controllers/admin/orderController')
 const statusController=require('../app/http/controllers/admin/statusController')
 
 //Middleware
-import geust from '../app/http/middleware/geust';
-import  auth from '../app/http/middleware/auth';
-import  admin from '../app/http/middleware/admin';
+import geust from '../app/http/middleware/geust.js';
+import  auth from '../app/http/middleware/auth.js';
+import  admin from '../app/http/middleware/admin.js';
 
 function initRoutes(app){
     app.get('/',homeController().index);
