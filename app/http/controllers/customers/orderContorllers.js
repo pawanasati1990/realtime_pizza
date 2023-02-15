@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
-const Order = require('../../../models/order')
-const moment = require("moment")
+import Order from "../../../models/order.js"
+import moment from "moment"
 function orderController() {
     //Facotry function
     return {
@@ -55,4 +55,6 @@ function orderController() {
     }
 }
 
-module.exports = orderController;
+//module.exports = orderController;
+
+export default orderController;

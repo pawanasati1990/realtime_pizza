@@ -1,4 +1,4 @@
-const Menu=require('../../models/menu')
+import Menu from '../../models/menu.js'
 function homeController(){
     //Facotry function
     return{
@@ -9,4 +9,5 @@ function homeController(){
     }
 }
 
-module.exports=homeController;
+//module.exports=homeController;
+export default homeController

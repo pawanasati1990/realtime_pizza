@@ -100,4 +100,5 @@ function authController(){
     }
 }
 
-module.exports=authController;
+//module.exports=authController;
+export default authController;

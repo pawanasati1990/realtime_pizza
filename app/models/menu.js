@@ -15,4 +15,5 @@ const menuSchema=new Schema(
     
 },{timestamps:true,toJSON:{getters:true},id:false} );
 
-module.exports= mongoose.model('Menu',menuSchema);
+//module.exports= mongoose.model('Menu',menuSchema);
+export default  mongoose.model('Menu',menuSchema);

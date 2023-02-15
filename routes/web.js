@@ -1,11 +1,11 @@
-const homeController=require('../app/http/controllers/homeController')
-const authController=require('../app/http/controllers/authController')
-const cartController=require('../app/http/controllers/customers/cartController')
-const orderController=require('../app/http/controllers/customers/orderContorllers')
+import homeController from '../app/http/controllers/homeController.js'
+import authController from '../app/http/controllers/authController.js'
+import cartController from '../app/http/controllers/customers/cartController.js'
+import orderController from '../app/http/controllers/customers/orderContorllers.js'
 
 
-const adminController=require('../app/http/controllers/admin/orderController')
-const statusController=require('../app/http/controllers/admin/statusController')
+import adminController from '../app/http/controllers/admin/orderController.js'
+import statusController from '../app/http/controllers/admin/statusController.js'
 
 //Middleware
 import geust from '../app/http/middleware/geust.js';

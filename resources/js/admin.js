@@ -1,5 +1,5 @@
-const { default: axios } = require("axios")
-const moment = require("moment")
+import axios from "axios"
+import moment from "moment"
  
 function initAdmin(socket){
     const orderTableBody= document.querySelector('#orderTableBody')
@@ -83,4 +83,5 @@ function initAdmin(socket){
     })
 }
 
-module.exports= initAdmin
+//module.exports= initAdmin
+export default initAdmin

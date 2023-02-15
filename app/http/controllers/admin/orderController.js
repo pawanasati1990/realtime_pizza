@@ -1,4 +1,4 @@
-const order=require('../../../models/order')
+import order from '../../../models/order.js'
 function  adminContorller(){
     return{
         index(req,res){
@@ -17,4 +17,5 @@ function  adminContorller(){
 
 }
 
-module.exports = adminContorller;
+//module.exports = adminContorller;
+export default adminContorller;

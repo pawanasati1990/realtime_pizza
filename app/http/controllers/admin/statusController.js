@@ -1,4 +1,4 @@
-const order=require('../../../models/order')
+import order from '../../../models/order.js'
 
 function statusController(){
     return {
@@ -16,4 +16,5 @@ function statusController(){
     }
 }
 
-module.exports =statusController
+//module.exports =statusController
+export default statusController;
