@@ -2,6 +2,7 @@ import axios
     from "axios";
 import initAdmin from "./admin";
 import moment from "moment";
+import toast from 'toast-me';
 const addToCart = document.querySelectorAll('.add-to-cart') //class
 const cartCounter = document.querySelector('#cartCounter') //id
 const deleteCartButton = document.querySelectorAll('#deleteCartButton')
@@ -25,7 +26,8 @@ function deleteItemInCart(_id) {
 
 function updateCart(pizza) {
     axios.post("/update-cart", pizza).then(res => { 
-        alert("Item added to cart");
+     
+        toast('Item added to cart', { duration: 1000, toastClass: 'my-toast-class' /* ... */ });
         cartCounter.innerText = res.data.totalQty
 
     })

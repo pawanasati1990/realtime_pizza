@@ -1,4 +1,3 @@
-import mongoose from "mongoose"
 function cartController(){
     //Facotry function
     return{
@@ -11,13 +10,16 @@ function cartController(){
            
             if(cart.items[req.body._id]){
 
-                cart.totalQty=cart.totalQty-1;
-                cart.totalPrice=cart.totalPrice-cart.items[req.body._id].item.prize
-               
+               // console.log(cart.items[req.body._id])
+                cart.totalQty=cart.totalQty-cart.items[req.body._id].qty;
+                cart.totalPrice=cart.totalPrice-(cart.items[req.body._id].item.prize*cart.items[req.body._id].qty)
+
                 if(cart.totalQty==0){
+                  // console.log("called")
                     delete req.session.cart
                 }
                 else{
+                   
                     delete cart.items[req.body._id]
                 }
                 
