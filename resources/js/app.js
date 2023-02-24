@@ -6,7 +6,40 @@ import toast from 'toast-me';
 const addToCart = document.querySelectorAll('.add-to-cart') //class
 const cartCounter = document.querySelector('#cartCounter') //id
 const deleteCartButton = document.querySelectorAll('#deleteCartButton')
+const minuspizzabtn = document.querySelectorAll('#minuspizzabtn')
+const addpizzabtn = document.querySelectorAll('#addpizzabtn')
+const toatal_amount = document.getElementById('toatal_amount')
+const pizza_list = document.querySelector('#pizza_list')
 
+//let loadData='<%-loadData%>'
+
+
+minuspizzabtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let pizza = btn.dataset.pizza_item;
+        addOrRemovePizzaQty(pizza, false)
+    })
+});
+
+
+addpizzabtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let pizza = btn.dataset.pizza_item;
+        addOrRemovePizzaQty(pizza, true)
+    })
+});
+
+function addOrRemovePizzaQty(_id, isAdd) {
+    axios.post(isAdd ? "/add_pizza_qty" : "/minus_pizza_qty", { _id }).then(res => {
+        //window.location.reload();
+        cartCounter.innerText = res.data.cart.totalQty
+        toatal_amount.innerText = res.data.cart.totalPrice
+        window.location.reload();
+        //pizza_item_count.innerText = res.data.cart.items[req.body._id].qty;
+    }).catch(err => {
+        console.log(err)
+    })
+}
 
 deleteCartButton.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -16,18 +49,22 @@ deleteCartButton.forEach((btn) => {
     })
 });
 
+function showToast(msg) {
+    toast(msg, { duration: 1000, toastClass: 'my-toast-class' /* ... */ });
+}
+
 function deleteItemInCart(_id) {
-    axios.post("/delete-cart", {_id}).then(res => { 
+    axios.post("/delete-cart", { _id }).then(res => {
         window.location.reload();
-    }).catch(err =>{
-      
+    }).catch(err => {
+
     })
 }
 
 function updateCart(pizza) {
-    axios.post("/update-cart", pizza).then(res => { 
-     
-        toast('Item added to cart', { duration: 1000, toastClass: 'my-toast-class' /* ... */ });
+    axios.post("/update-cart", pizza).then(res => {
+        showToast('Item added to cart')
+        // toast('Item added to cart', { duration: 1000, toastClass: 'my-toast-class' /* ... */ });
         cartCounter.innerText = res.data.totalQty
 
     })

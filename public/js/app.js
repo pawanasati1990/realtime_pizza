@@ -80,6 +80,38 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var addToCart = document.querySelectorAll('.add-to-cart'); //class
 var cartCounter = document.querySelector('#cartCounter'); //id
 var deleteCartButton = document.querySelectorAll('#deleteCartButton');
+var minuspizzabtn = document.querySelectorAll('#minuspizzabtn');
+var addpizzabtn = document.querySelectorAll('#addpizzabtn');
+var toatal_amount = document.getElementById('toatal_amount');
+var pizza_list = document.querySelector('#pizza_list');
+
+//let loadData='<%-loadData%>'
+
+minuspizzabtn.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var pizza = btn.dataset.pizza_item;
+    addOrRemovePizzaQty(pizza, false);
+  });
+});
+addpizzabtn.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var pizza = btn.dataset.pizza_item;
+    addOrRemovePizzaQty(pizza, true);
+  });
+});
+function addOrRemovePizzaQty(_id, isAdd) {
+  axios__WEBPACK_IMPORTED_MODULE_3__["default"].post(isAdd ? "/add_pizza_qty" : "/minus_pizza_qty", {
+    _id: _id
+  }).then(function (res) {
+    //window.location.reload();
+    cartCounter.innerText = res.data.cart.totalQty;
+    toatal_amount.innerText = res.data.cart.totalPrice;
+    window.location.reload();
+    //pizza_item_count.innerText = res.data.cart.items[req.body._id].qty;
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
 deleteCartButton.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
     var pizza = btn.dataset.pizza_item;
@@ -87,6 +119,13 @@ deleteCartButton.forEach(function (btn) {
     deleteItemInCart(pizza);
   });
 });
+function showToast(msg) {
+  toast_me__WEBPACK_IMPORTED_MODULE_2___default()(msg, {
+    duration: 1000,
+    toastClass: 'my-toast-class' /* ... */
+  });
+}
+
 function deleteItemInCart(_id) {
   axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("/delete-cart", {
     _id: _id
@@ -96,10 +135,8 @@ function deleteItemInCart(_id) {
 }
 function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("/update-cart", pizza).then(function (res) {
-    toast_me__WEBPACK_IMPORTED_MODULE_2___default()('Item added to cart', {
-      duration: 1000,
-      toastClass: 'my-toast-class' /* ... */
-    });
+    showToast('Item added to cart');
+    // toast('Item added to cart', { duration: 1000, toastClass: 'my-toast-class' /* ... */ });
     cartCounter.innerText = res.data.totalQty;
   });
 }

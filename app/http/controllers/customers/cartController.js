@@ -4,13 +4,33 @@ function cartController(){
         cart(req,resp){
             resp.render('customers/cart') 
         },
+        addPizzaQty(req,resp){
+            let cart =req.session.cart
+            if(cart.items[req.body._id]&&cart.items[req.body._id].qty<=10){
+               // console.log(cart.items[req.body._id])
+                cart.totalQty++;
+                cart.items[req.body._id].qty++;
+                cart.totalPrice=cart.totalPrice+cart.items[req.body._id].item.prize
+             }
+             return resp.json({cart:req.session.cart})
+        },
+        removePizzaQty(req,resp){
+            let cart =req.session.cart
+            if(cart.items[req.body._id]&& cart.items[req.body._id].qty>1){
+               // console.log(cart.items[req.body._id])
+                cart.totalQty--;
+                cart.items[req.body._id].qty--;
+                cart.totalPrice=cart.totalPrice-cart.items[req.body._id].item.prize
+             }
+             return resp.json({cart:req.session.cart})
+        },
         deleteItem(req,resp){
         
             let cart =req.session.cart
-           
+    
             if(cart.items[req.body._id]){
 
-               // console.log(cart.items[req.body._id])
+               //console.log(cart.items[req.body._id])
                 cart.totalQty=cart.totalQty-cart.items[req.body._id].qty;
                 cart.totalPrice=cart.totalPrice-(cart.items[req.body._id].item.prize*cart.items[req.body._id].qty)
 
@@ -73,7 +93,7 @@ function cartController(){
                 cart.totalPrice=cart.totalPrice+req.body.prize;
             }
         
-           return resp.json({totalQty: req.session.cart.totalQty})
+           return resp.json({totalQty: cart.totalQty})
         },
         orderNow(){
             return resp.json({message: 'Working'})

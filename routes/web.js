@@ -17,6 +17,9 @@ function initRoutes(app){
     app.get('/cart',cartController().cart);
     app.post('/update-cart',cartController().update);
     app.post('/delete-cart',cartController().deleteItem);
+    app.post('/add_pizza_qty',cartController().addPizzaQty);
+    app.post('/minus_pizza_qty',cartController().removePizzaQty);
+
     app.get('/login',geust,authController().login);
     app.post('/login',authController().postLogin);
     app.get('/register',geust,authController().register);

@@ -27,6 +27,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
+    "jquery": "^3.6.3",
+    "jsdom": "^21.1.0",
     "moment": "^2.29.4",
     "mongoose": "^6.9.0",
     "passport": "^0.6.0",

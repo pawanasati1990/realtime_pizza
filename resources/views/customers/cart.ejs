@@ -7,16 +7,25 @@
             <h1 class="font-bold ml-4 text-2xl">Order summary</h1>
         </div>
 
-        <div class="pizza-list">
-
-            <% for(let pizza of  Object.values(session.cart.items)) {%>
+        <div  class="pizza-list" id="pizza_list" >
+            <%function loadData() { for(let pizza of  Object.values(session.cart.items)) {%>
             <div class="flex items-center my-8">
                 <img class = "w-24" src="/img/<%=pizza.item.image%>" alt="">
                 <div class="flex-1 ml-4">
                     <h1><%= pizza.item.name %></h1>
                     <span class="pizza_size text-xs"><%= pizza.item.size %></span>
                 </div>
-                <span class ="flex-1"> <%= pizza.qty %> Pcs
+                <span class ="flex-1">
+                    <div class="flex items-center"> 
+                        <button id="minuspizzabtn" data-pizza_item="<%= pizza.item._id %>" class="mr-2" type="submit">
+                        <img src="/img/minus_icon.svg" alt="buttonpng"  />
+                     </button>
+                    <h1 id="pizza_item_count"><%= pizza.qty %> Pcs</h1> 
+                     <button id="addpizzabtn" data-pizza_item="<%= pizza.item._id %>" class="ml-2" type="submit2">
+                      <img src="/img/plus_icon.svg" alt="buttonpng" />
+                    </button>
+                    </div>
+                   
                 </span>
                 <span class="font-bold text-lg">&#8377;<%= pizza.qty* pizza.item.prize %></span>
                 <!-- <button class="ml-12" id="deleteCartButton" data-pizza_item="<%= pizza.item._id %>">Delete</button> -->
@@ -24,13 +33,15 @@
           
             </div>
 
-       <% } %>
+       <% }} 
+       loadData()
+       %>
         </div>
       <hr>
       <div class="text-right py-4">
         <div>
             <span class="text-lg font-bold">Total Amount:</span>
-            <span class="amount text-2xl font-bold ml-2">&#8377;<%= session.cart.totalPrice %></span>
+            <span id="toatal_amount" class="amount text-2xl font-bold ml-2">&#8377;<%= session.cart.totalPrice %></span>
         </div>
         
         <% if(user) {%>
