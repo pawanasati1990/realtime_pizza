@@ -16,3 +16,4 @@
  [.] Create orders view with table for customer and admin
  [.] Create order single page with status
  [.] Create login page with route            
+ [.] Create login page with route            
